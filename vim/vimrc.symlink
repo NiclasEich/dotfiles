@@ -1,0 +1,74 @@
+set encoding=UTF-8
+"Options used 
+"
+"
+set number relativenumber
+syntax on
+set hlsearch
+"
+"remap some keys
+"
+"
+map <C-T> :NERDTreeToggle<CR>
+map <C-F> :Files<CR>
+
+"ALE mappings
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+:imap ii <Esc>
+
+
+"Setting backspace going to EOL as well
+"
+"
+set backspace=indent,eol,start
+
+
+"Using the vundle-plugins
+"
+"
+so ~/.vim/plugins.vim
+
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
+
+"Settings for lightline working right
+"
+"
+if !has('gui_running')
+  set t_Co=256
+endif
+set laststatus=2
+
+
+"vim devicons settings
+"
+"
+set guifont=RobotoMono:h18
+
+"NerdTree
+"
+"
+let g:webdevicons_enable = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+
+"vim-latex
+"
+"
+let g:tex_conceal = ''
+let g:tex_flavor='latex'
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
+
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
