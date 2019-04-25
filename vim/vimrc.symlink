@@ -56,11 +56,11 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 "UltiSnips
 "
 "
-let g:UltiSnipsUsePythonVersion = 3 " use python version 3
-let g:UltiSnipsExpandTrigger               <tab>
-let g:UltiSnipsListSnippets                <c-tab>
-let g:UltiSnipsJumpForwardTrigger          <c-j>
-let g:UltiSnipsJumpBackwardTrigger         <c-k>
+"let g:UltiSnipsUsePythonVersion = 3 " use python version 3
+"let g:UltiSnipsExpandTrigger               <tab>
+"let g:UltiSnipsListSnippets                <c-tab>
+"let g:UltiSnipsJumpForwardTrigger          <c-j>
+"let g:UltiSnipsJumpBackwardTrigger         <c-k>
 
 "vim-latex
 "
