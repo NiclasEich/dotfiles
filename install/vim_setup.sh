@@ -31,3 +31,7 @@ fi
 # Running VundleUpdate to install all plugins
 echo "Installing all VimPlugins with Vundle"
 vim -c VundleUpdate -c quitall
+
+# set up for UltiSnips
+mkdir -p ~/.vim/ftdetect/
+ln -s ~/.vim/bundle/ultisnips/ftdetect/* ~/.vim/ftdetect/
