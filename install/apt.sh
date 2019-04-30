@@ -4,8 +4,12 @@ echo -e "\\n\\nInstalling apt packages..."
 echo "=============================="
 
 formulas=(
+    build-essential
+    cmake
     curl
     git
+    python3
+    python3-dev
     tmux
     vim
     wget
