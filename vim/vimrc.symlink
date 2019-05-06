@@ -5,12 +5,36 @@ set encoding=UTF-8
 set number relativenumber
 syntax on
 set hlsearch
+
+
+noremap <C-w>+ :resize +5<CR>
+noremap <C-w>- :resize -5<CR>
+noremap <C-w>< :vertical:resize -5<CR>
+noremap <C-w>> :vertical:resize +5<CR>
 "
 "remap some keys
 "
 "
 map <C-T> :NERDTreeToggle<CR>
 map <C-F> :Files<CR>
+" make YCM compatible with UltiSnips (using supertab)
+"
+"
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" git-gutter Colorsettings
+" 
+"
+"highlight GitGutterAdd    guifg=#009900 guibg=#073642 ctermfg=2 ctermbg=0
+"highlight GitGutterChange guifg=#bbbb00 guibg=#073642 ctermfg=3 ctermbg=0
+"highlight GitGutterDelete guifg=#ff2222 guibg=#073642 ctermfg=1 ctermbg=0
+" better key bindings for UltiSnipsExpandTrigger
+"
+"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "ALE mappings
 "
