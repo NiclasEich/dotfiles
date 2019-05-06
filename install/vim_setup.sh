@@ -35,3 +35,7 @@ vim -c VundleUpdate -c quitall
 # set up for UltiSnips
 mkdir -p ~/.vim/ftdetect/
 ln -s ~/.vim/bundle/ultisnips/ftdetect/* ~/.vim/ftdetect/
+
+# YouCompleteMe setup
+python3 ~/.vim/bundle/YouCompleteMe/install.py
+
