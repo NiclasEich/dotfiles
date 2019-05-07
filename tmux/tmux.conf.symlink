@@ -35,6 +35,21 @@ bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-
 # enable mouse support for switching panes/windows
 setw -g mouse on
 
+# Colour for currently selected pane
+#set -g window-style 'fg=default,bg=default'
+#set -g window-active-style 'fg=default,bg=default'
+#set inactive/active window styles
+set -g window-style 'fg=colour247,bg=colour236'
+set -g window-active-style 'fg=colour250,bg=colour235'
+
+# set the pane border colors 
+#set -g pane-border-fg colour235
+#set -g pane-border-bg colour238
+#set -g pane-active-border-fg colour236 
+#set -g pane-active-border-bg colour250 
+
+#or if you a brighter active border, uncomment the following line:
+#set -g pane-active-border-bg colour51
 # show running music in bottom bar
 #tm_tunes="#[bg=$base00,fg=$base0D] ♫ #(osascript -l JavaScript ~/.dotfiles/applescripts/tunes.js)"
 #set -g status-right "$tm_tunes"
