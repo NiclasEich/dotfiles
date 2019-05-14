@@ -6,6 +6,7 @@ set number relativenumber
 syntax on
 set hlsearch
 
+set mouse=a
 
 noremap <C-w>+ :resize +5<CR>
 noremap <C-w>- :resize -5<CR>
