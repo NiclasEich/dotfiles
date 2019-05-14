@@ -68,6 +68,7 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 "
 if !has('gui_running')
   set t_Co=256
+  set termguicolors
 endif
 set laststatus=2
 

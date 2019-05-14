@@ -39,8 +39,10 @@ setw -g mouse on
 #set -g window-style 'fg=default,bg=default'
 #set -g window-active-style 'fg=default,bg=default'
 #set inactive/active window styles
-set -g window-style 'fg=colour247,bg=colour237'
-set -g window-active-style 'fg=colour250,bg=colour236'
+#set -g window-style 'fg=colour247,bg=colour237'
+#set -g window-style 'fg=default,bg=default'
+#set -g window-active-style 'fg=colour250,bg=colour236'
+#set -g window-active-style 'fg=default,bg=default'
 
 # enable truecolor support
 set -g default-terminal "xterm-256color"
