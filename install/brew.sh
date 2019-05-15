@@ -43,3 +43,6 @@ if [[ "$SHELL" != "$zsh_path" ]]; then
     chsh -s "$zsh_path"
     echo "default shell changed to $zsh_path"
 fi
+
+#install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
