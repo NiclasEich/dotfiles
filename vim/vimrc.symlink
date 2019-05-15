@@ -5,6 +5,7 @@ set encoding=UTF-8
 set number relativenumber
 syntax on
 set hlsearch
+set background=dark
 
 set mouse=a
 
