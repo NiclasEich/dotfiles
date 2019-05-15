@@ -34,3 +34,4 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
 fi
 
 source install/vim_setup.sh
+source install/zsh_setup.sh
