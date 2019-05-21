@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster-custom"
-DEFAULT_USER="niclaseich"
+
 #ZSH_CUSTOM=$HOME/.dotfiles/zsh
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -97,8 +97,14 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-if command apt > /dev/null; then
+if [[ `uname` == "Linux" ]]; then
     source .zsh_ubuntu
+    prompt_context() {
+    # Custom (Random emoji)
+    emojis=("⚡️" "🔥" "💀" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🇹🇭" "🚦" "🌙")
+    RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
+    prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
+}
 elif [[ `uname` == "Darwin" ]]; then
     source .zsh_mac
 fi

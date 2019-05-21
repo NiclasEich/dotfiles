@@ -1,3 +1,4 @@
+DEFAULT_USER="niclaseich"
 # mounts
 _mount () {
     diskutil umount force /Users/niclaseich/mounts/$1;
