@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 if [[ `uname` == "Linux" ]]; then
-    source .zsh_ubuntu
+    source $HOME/.zsh_ubuntu
     prompt_context() {
     # Custom (Random emoji)
     emojis=("⚡️" "🔥" "💀" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🇹🇭" "🚦" "🌙")
@@ -106,10 +106,10 @@ if [[ `uname` == "Linux" ]]; then
     prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
 }
 elif [[ `uname` == "Darwin" ]]; then
-    source .zsh_mac
+    source $HOME/.zsh_mac
 fi
 
-source .aliases
+source $HOME/.aliases
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
