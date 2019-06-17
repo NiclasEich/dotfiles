@@ -13,8 +13,14 @@ noremap <C-w>+ :resize +5<CR>
 noremap <C-w>- :resize -5<CR>
 noremap <C-w>< :vertical:resize -5<CR>
 noremap <C-w>> :vertical:resize +5<CR>
+"settings for copying to clipboard
 "
-"remap some keys
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+"
+"remap keys for opening plugins
 "
 "
 map <C-T> :NERDTreeToggle<CR>
