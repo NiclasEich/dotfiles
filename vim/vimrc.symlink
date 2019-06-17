@@ -27,6 +27,7 @@ noremap <Leader>P "+p
 "
 map <C-T> :NERDTreeToggle<CR>
 map <C-F> :Files<CR>
+map <C-G> :Ag<CR>
 " make YCM compatible with UltiSnips (using supertab)
 "
 "
