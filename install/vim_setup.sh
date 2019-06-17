@@ -39,3 +39,6 @@ ln -s ~/.vim/bundle/ultisnips/ftdetect/* ~/.vim/ftdetect/
 # YouCompleteMe setup
 python3 ~/.vim/bundle/YouCompleteMe/install.py
 
+# Create nvim setup
+mkdir $HOME/.config/nvim
+echo "set runtimepath^=/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc" >> $HOME/.config/nvim/init.vim

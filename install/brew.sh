@@ -12,7 +12,7 @@ formulas=(
     fzf
     git
     markdown
-    macvim
+    neovim
     tmux
     zsh
     entr
