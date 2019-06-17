@@ -9,13 +9,14 @@ echo -e "\\n\\nInstalling homebrew packages..."
 echo "=============================="
 
 formulas=(
+    entr
     fzf
     git
     markdown
     neovim
+    the_silver_searcher
     tmux
     zsh
-    entr
 )
 
 for formula in "${formulas[@]}"; do

@@ -13,6 +13,8 @@ noremap <C-w>+ :resize +5<CR>
 noremap <C-w>- :resize -5<CR>
 noremap <C-w>< :vertical:resize -5<CR>
 noremap <C-w>> :vertical:resize +5<CR>
+
+let g:ackprg = 'ag --vimgrep'
 "settings for copying to clipboard
 "
 noremap <Leader>y "*y
