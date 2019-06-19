@@ -10,6 +10,7 @@ formulas=(
     git
     python3
     python3-dev
+    silversearcher-ag
     tmux
     vim
     neovim
