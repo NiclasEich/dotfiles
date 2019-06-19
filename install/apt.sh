@@ -12,6 +12,8 @@ formulas=(
     python3-dev
     tmux
     vim
+    neovim
+    python3-neovim
     wget
     zsh
 )
