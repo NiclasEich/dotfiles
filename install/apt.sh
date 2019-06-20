@@ -11,6 +11,7 @@ formulas=(
     python3
     python3-dev
     silversearcher-ag
+    sshfs
     tmux
     vim
     neovim
