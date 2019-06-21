@@ -1,2 +1,4 @@
 alias cl='clear'
 alias vim='nvim'
+alias search='find * -type f | fzf > selected'
+

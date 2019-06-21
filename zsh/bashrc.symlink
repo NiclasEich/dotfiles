@@ -1,0 +1,25 @@
+# rscreen (directly jump into ssh sessions screen)
+rscreen () {
+    ssh $1 -Yt screen -D -RR $2
+}
+# _rscreen (autocompletion for rscreen)
+_rscreen() {
+  local cur prev opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  pprev="${COMP_WORDS[COMP_CWORD-2]}"
+  opts=$(grep '^Host' ~/.ssh/config | grep -v '[?*]' | cut -d ' ' -f 2-)
+  if [[ $prev == "rscreen"  ]]; then
+    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+  elif [[ $pprev == "rscreen" ]]; then
+    local _cur _prev _opts
+    COMPREPLY=()
+    _cur="${COMP_WORDS[COMP_CWORD]}"
+    _prev="${COMP_WORDS[COMP_CWORD-1]}"
+    _opts=$(ssh $prev "screen -ls | grep -E '[0-9]+\.[a-zA-Z0-9]*' | cut -d'.' -f2 | cut -d'(' -f1")
+    COMPREPLY=( $(compgen -W "$_opts" -- ${_cur}) )
+  fi
+  return 0
+}
+complete -F _rscreen rscreen
