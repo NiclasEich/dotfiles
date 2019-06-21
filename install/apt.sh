@@ -10,8 +10,12 @@ formulas=(
     git
     python3
     python3-dev
+    silversearcher-ag
+    sshfs
     tmux
     vim
+    neovim
+    python3-neovim
     wget
     zsh
 )
