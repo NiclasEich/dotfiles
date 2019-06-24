@@ -12,6 +12,7 @@ formulas=(
     entr
     fzf
     git
+    jupyter
     markdown
     neovim
     the_silver_searcher
