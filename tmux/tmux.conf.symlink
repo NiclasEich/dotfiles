@@ -47,7 +47,7 @@ setw -g mouse on
 #set -g window-active-style 'fg=default,bg=default'
 
 # Colour for currently selected window
-set-window-option -g window-status-current-bg red
+set-window-option -g window-status-current-style bg=black,fg=green
 
 # enable truecolor support
 set -g default-terminal "screen-256color"
