@@ -120,6 +120,8 @@ eval "$(direnv hook zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored
 zstyle :compinstall filename '/Users/niclaseich/.zshrc'
 
 autoload -Uz compinit
