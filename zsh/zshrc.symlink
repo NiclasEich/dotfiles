@@ -110,6 +110,11 @@ elif [[ `uname` == "Darwin" ]]; then
 fi
 
 source $HOME/.aliases
+# rscreen (directly jump into ssh sessions screen)
+rscreen () {
+    ssh $1 -Yt screen -D -RR $2
+}
+
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -121,9 +126,13 @@ eval "$(direnv hook zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _expand _complete _ignored
+#zstyle ':completion:*' completer _expand _complete _ignored
 zstyle :compinstall filename '/Users/niclaseich/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+#
+
+#source "$( law completion )"
+

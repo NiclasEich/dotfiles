@@ -4,6 +4,7 @@ set encoding=UTF-8
 "
 set number relativenumber
 syntax on
+set cursorline " highlight current line
 set hlsearch
 set background=dark
 highlight Visual cterm=NONE ctermbg=0 ctermfg=NONE guibg=Grey40
