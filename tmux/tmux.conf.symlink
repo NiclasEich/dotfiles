@@ -47,12 +47,16 @@ setw -g mouse on
 #set -g window-active-style 'fg=default,bg=default'
 
 # Colour for currently selected window
-set-window-option -g window-status-current-style bg=black,fg=green
+set-window-option -g window-status-current-style bg=black,fg=default
 
 # enable truecolor support
 set -g default-terminal "screen-256color"
 #set -g default-terminal "xterm-256color"
 set-option -ga terminal-overrides ",xterm-256color:Tc"
+
+## Status bar desing for nested session
+set -g status-bg red
+set -g status-fg default
 
 # set the pane border colors 
 #set -g pane-border-fg colour235
