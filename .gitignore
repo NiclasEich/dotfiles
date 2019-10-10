@@ -1,2 +1,3 @@
 *.swp
 vim/vim_locales.symlink
+tmux/tmux_locales.symlink

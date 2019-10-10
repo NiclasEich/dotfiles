@@ -1,3 +1,5 @@
+source-file $HOME/.tmux_locales
+ACCENT_COLOUR=colour2
 # Set tmux to Vi mode
 setw -g mode-keys vi
 # more settings to make copy-mode more vim-like
@@ -38,32 +40,32 @@ bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-
 setw -g mouse on
 
 #  modes
-setw -g clock-mode-colour colour2
-setw -g mode-style 'fg=colour234 bg=colour2 bold'
+setw -g clock-mode-colour $ACCENT_COLOUR
+setw -g mode-style "fg=colour234 bg=$ACCENT_COLOUR bold"
 
 # panes
-set -g pane-border-style 'fg=colour250 bg=default'
-set -g pane-active-border-style 'bg=default fg=colour2'
+set -g pane-border-style "fg=colour250 bg=default"
+set -g pane-active-border-style "bg=default fg=$ACCENT_COLOUR"
 
 # statusbar
 set -g status-position bottom
 set -g status-justify left
-set -g status-style 'bg=colour2 fg=colour234 dim'
-set -g status-left ''
-set -g status-right '#[fg=colour234,bg=colour2] %d/%m #[fg=colour234,bg=colour2] %H:%M:%S '
+set -g status-style "bg=$ACCENT_COLOUR fg=colour234 dim"
+set -g status-left ""
+set -g status-right "#[fg=colour234,bg=$ACCENT_COLOUR] %d/%m #[fg=colour234,bg=$ACCENT_COLOUR] %H:%M:%S "
 set -g status-right-length 50
 set -g status-left-length 20
 
-setw -g window-status-style 'fg=colour234 bg=colour2'
-setw -g window-status-format ' #I#[fg=colour0]:#[fg=colour0]#W#[fg=colour0]#F '
+setw -g window-status-style "fg=colour234 bg=$ACCENT_COLOUR"
+setw -g window-status-format " #I#[fg=colour0]:#[fg=colour0]#W#[fg=colour0]#F "
 
-setw -g window-status-current-style 'fg=colour2 bg=colour0'
-setw -g window-status-current-format ' #I#[fg=colour2]:#[fg=colour2]#W#[fg=colour234]#F '
+setw -g window-status-current-style "fg=$ACCENT_COLOUR bg=colour0"
+setw -g window-status-current-format " #I#[fg=$ACCENT_COLOUR]:#[fg=$ACCENT_COLOUR]#W#[fg=colour234]#F "
 
-setw -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
+setw -g window-status-bell-style "fg=colour255 bg=colour1 bold"
 
 # messages
-set -g message-style 'fg=colour232 bg=colour16 bold'
+set -g message-style "fg=colour232 bg=colour16 bold"
 
 # enable truecolor support
 set -g default-terminal "screen-256color"
