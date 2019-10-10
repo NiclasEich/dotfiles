@@ -1,3 +1,4 @@
+source $HOME/.vim_locales
 set encoding=UTF-8
 "Options used 
 "
@@ -121,8 +122,6 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 "let g:UltiSnipsJumpForwardTrigger          <c-j>
 "let g:UltiSnipsJumpBackwardTrigger         <c-k>
 "
-let g:python_host_prog  = '/usr/local/bin/Python'   " Python 2
-let g:python3_host_prog = '/usr/local/bin/Python3'  " Python 3
 
 "vim-latex
 "
