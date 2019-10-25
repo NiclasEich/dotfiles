@@ -2,3 +2,13 @@ alias cl='clear'
 alias vim='nvim'
 alias search='find * -type f | fzf > selected'
 
+rtmux () {
+    if [ "$#" -ne 1 ]; then
+        ssh $1 -Yt "tmux attach-session -t $2 || tmux new -s $2"
+    fi
+    if [ "$#" -ne 2 ]; then
+        ssh $1 -Yt "tmux attach"
+    fi
+}
+
+
