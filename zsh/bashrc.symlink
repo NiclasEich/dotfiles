@@ -24,6 +24,10 @@ _rscreen() {
 }
 complete -F _rscreen rscreen
 
+rtmux () {
+    ssh $1 -Yt tmux attach-session -t $2 || tmux new-session -t $2
+}
+
 # convenient directory maneuvering
 cds () {
     foo=$1
