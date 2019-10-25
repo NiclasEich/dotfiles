@@ -62,10 +62,11 @@ setw -g window-status-format " #I#[fg=colour0]:#[fg=colour0]#W#[fg=colour0]#F "
 setw -g window-status-current-style "fg=$ACCENT_COLOUR bg=colour0"
 setw -g window-status-current-format " #I#[fg=$ACCENT_COLOUR]:#[fg=$ACCENT_COLOUR]#W#[fg=colour234]#F "
 
-setw -g window-status-bell-style "fg=colour255 bg=colour1 bold"
+setw -g window-status-bell-style "fg=colour255 bg=colour3 bold"
 
 # messages
 set -g message-style "fg=colour232 bg=colour16 bold"
+set -g message-command-style "fg=colour232 bg=colour16 bold"
 
 # enable truecolor support
 set -g default-terminal "screen-256color"
