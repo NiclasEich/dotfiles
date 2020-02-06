@@ -39,7 +39,7 @@ map <C-G> :Ag<CR>
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " git-gutter Colorsettings
 " 
 "
@@ -47,6 +47,15 @@ nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "highlight GitGutterChange guifg=#bbbb00 guibg=#073642 ctermfg=3 ctermbg=0
 "highlight GitGutterDelete guifg=#ff2222 guibg=#073642 ctermfg=1 ctermbg=0
 " better key bindings for UltiSnipsExpandTrigger
+"
+"
+"
+"Black Settings
+let g:black_linelength=140
+noremap <leader>b :Black<CR>
+
+
+"
 "
 "
 let g:UltiSnipsExpandTrigger = "<tab>"
