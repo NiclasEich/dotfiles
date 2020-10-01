@@ -12,11 +12,13 @@ formulas=(
     entr
     fzf
     git
+    git-lfs
     jupyter
     markdown
     neovim
     the_silver_searcher
     tmux
+    tmuxinator
     zsh
 )
 

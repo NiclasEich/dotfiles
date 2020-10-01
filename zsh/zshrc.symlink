@@ -133,7 +133,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 #
-
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 #source "$( law completion )"
 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
