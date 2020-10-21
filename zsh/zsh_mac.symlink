@@ -12,6 +12,7 @@ alias m_vispa_NiclasEich_scratch='_mount vispa/scratch/NiclasEich/ NEvispa-porta
 alias ls='ls -G'
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export EDITOR=nvim
 
 # Virtualenvwrapper things
 #
