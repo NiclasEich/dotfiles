@@ -28,6 +28,15 @@ rtmux () {
     ssh $1 -Yt tmux attach-session -t $2 || tmux new-session -t $2
 }
 
+# Kerberos refresh tmux session
+ ktmux(){
+     if [[ -z "$1" ]]; then #if no argument passed
+             k5reauth -f -i 3600 -p neich -k $HOME/private/neich.keytab -- tmux new-session
+     else #pass the argument as the tmux session name
+             k5reauth -f -i 3600 -p neich -k $HOME/private/neich.keytab -- tmux new-session -s $1
+     fi
+}
+
 # convenient directory maneuvering
 cds () {
     foo=$1

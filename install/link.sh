@@ -14,3 +14,13 @@ for file in $linkables ; do
         ln -s "$file" "$target"
     fi
 done
+touchables=$( find -H "$DOTFILES" -maxdepth 3 -name '*.touch' )
+for file in $touchables ; do
+    target="$HOME/.$( basename "$file" '.touch' )"
+    if [ -e "$target" ]; then
+        echo "~${target#$HOME} already exists... Skipping."
+    else
+        echo "Creating $file"
+        touch "$target"
+    fi
+done
