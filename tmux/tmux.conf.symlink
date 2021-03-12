@@ -1,5 +1,5 @@
 source-file $HOME/.tmux_locales
-ACCENT_COLOUR=colour2
+ACCENT_COLOUR=colour197
 # Set tmux to Vi mode
 setw -g mode-keys vi
 # more settings to make copy-mode more vim-like
@@ -62,7 +62,7 @@ setw -g window-status-format " #I#[fg=colour0]:#[fg=colour0]#W#[fg=colour0]#F "
 setw -g window-status-current-style "fg=$ACCENT_COLOUR bg=colour0"
 setw -g window-status-current-format " #I#[fg=$ACCENT_COLOUR]:#[fg=$ACCENT_COLOUR]#W#[fg=colour234]#F "
 
-setw -g window-status-bell-style "fg=colour255 bg=colour3 bold"
+setw -g window-status-bell-style "fg=colour256 bg=$ACCENT_COLOUR bold"
 
 # messages
 set -g message-style "fg=colour16 bg=$ACCENT_COLOUR bold"
