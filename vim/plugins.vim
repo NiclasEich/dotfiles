@@ -1,21 +1,23 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
+"Plugin 'euclio/vim-markdown-composer'
+"Plugin 'vim-latex/vim-latex'
 Plugin 'SirVer/ultisnips'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ervandew/supertab'
-Plugin 'euclio/vim-markdown-composer'
 Plugin 'honza/vim-snippets'
 Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'lervag/vimtex'
 Plugin 'mattn/emmet-vim'
 Plugin 'numirias/semshi'
 Plugin 'nvie/vim-flake8'
+Plugin 'prettier/vim-prettier'
 Plugin 'psf/black'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdcommenter'
@@ -25,8 +27,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-latex/vim-latex'
 Plugin 'w0rp/ale'
+Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 

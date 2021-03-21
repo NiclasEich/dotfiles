@@ -1,6 +1,11 @@
 alias cl='clear'
-alias vim='nvim'
+alias vim='vim'
 alias search='find * -type f | fzf > selected'
+
+alias l='ls -la'
+alias ll='ls -l'
+
+source $HOME/.local_aliases
 
 rtmux () {
     if [ "$#" -ne 1 ]; then
