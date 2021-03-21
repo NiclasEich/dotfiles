@@ -99,12 +99,12 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 if [[ `uname` == "Linux" ]]; then
     source $HOME/.zsh_ubuntu
-    prompt_context() {
-    # Custom (Random emoji)
-    emojis=("⚡️" "🔥" "💀" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🇹🇭" "🚦" "🌙")
-    RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
-    prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
-}
+    #prompt_context() {
+     #Custom (Random emoji)
+    #emojis=("⚡️" "🔥" "💀" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🇹🇭" "🚦" "🌙")
+    #RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
+    #prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
+#}
 elif [[ `uname` == "Darwin" ]]; then
     source $HOME/.zsh_mac
 fi

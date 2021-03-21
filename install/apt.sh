@@ -7,15 +7,17 @@ formulas=(
     build-essential
     cmake
     curl
+    direnv
+    fonts-powerline
     git
+    neovim
     python3
     python3-dev
+    python3-neovim
     silversearcher-ag
     sshfs
     tmux
     vim
-    neovim
-    python3-neovim
     wget
     zsh
 )
