@@ -8,21 +8,7 @@ echo "Installing dotfiles."
 
 source install/link.sh
 
-
-# only perform macOS-specific install
-if [ "$(uname)" == "Darwin" ]; then
-    echo -e "\\n\\nRunning on macOS"
-
-    source install/brew.sh
-
-    source install/osx.sh
-elif [ "$(uname)" == "Linux" ]; then
-    echo -e "\\n\\nRunning on Linux"
-
-    source install/apt.sh
-fi
-
-if ! command_exists vim; then
+if ! command_exists nvim; then
     echo "Vim not found. Please install and re-run installation!"
 fi
 if ! command_exists zsh; then
