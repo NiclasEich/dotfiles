@@ -15,6 +15,16 @@ require('mason-lspconfig').setup({
         lsp_zero.default_setup,
     }
 })
+require('lspconfig').lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    },
+  },
+}
 
 require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').pyright.setup({})
