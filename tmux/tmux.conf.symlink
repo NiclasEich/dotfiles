@@ -1,5 +1,5 @@
 source-file $HOME/.tmux_locales
-ACCENT_COLOUR=colour2
+ACCENT_COLOUR=colour197
 # Set tmux to Vi mode
 setw -g mode-keys vi
 # more settings to make copy-mode more vim-like
@@ -67,6 +67,7 @@ set -g status-justify left
 # # messages
 # set -g message-style "fg=colour16 bg=$ACCENT_COLOUR bold"
 # set -g message-command-style "fg=colour16 bg=$ACCENT_COLOUR bold"
+>>>>>>> 98afd48af0f14b0009c279b28c80dadc3d1c3299
 #set -g message-command-style "fg=colour16 bg=colour232 bold"
 
 # enable truecolor support
