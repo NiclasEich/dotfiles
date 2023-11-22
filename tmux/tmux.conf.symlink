@@ -50,26 +50,40 @@ set -g pane-active-border-style "bg=default fg=$ACCENT_COLOUR"
 # statusbar
 set -g status-position bottom
 set -g status-justify left
-set -g status-style "bg=$ACCENT_COLOUR fg=colour234 dim"
-set -g status-left ""
-set -g status-right "#[fg=colour234,bg=$ACCENT_COLOUR] %d/%m #[fg=colour234,bg=$ACCENT_COLOUR] %H:%M:%S "
-set -g status-right-length 50
-set -g status-left-length 20
-
-setw -g window-status-style "fg=colour234 bg=$ACCENT_COLOUR"
-setw -g window-status-format " #I#[fg=colour0]:#[fg=colour0]#W#[fg=colour0]#F "
-
-setw -g window-status-current-style "fg=$ACCENT_COLOUR bg=colour0"
-setw -g window-status-current-format " #I#[fg=$ACCENT_COLOUR]:#[fg=$ACCENT_COLOUR]#W#[fg=colour234]#F "
-
-setw -g window-status-bell-style "fg=colour255 bg=colour3 bold"
-
-# messages
-set -g message-style "fg=colour16 bg=$ACCENT_COLOUR bold"
-set -g message-command-style "fg=colour16 bg=$ACCENT_COLOUR bold"
+# set -g status-style "bg=$ACCENT_COLOUR fg=colour234 dim"
+# set -g status-left ""
+# set -g status-right "#[fg=colour234,bg=$ACCENT_COLOUR] %d/%m #[fg=colour234,bg=$ACCENT_COLOUR] %H:%M:%S "
+# set -g status-right-length 50
+# set -g status-left-length 20
+#
+# setw -g window-status-style "fg=colour234 bg=$ACCENT_COLOUR"
+# setw -g window-status-format " #I#[fg=colour0]:#[fg=colour0]#W#[fg=colour0]#F "
+#
+# setw -g window-status-current-style "fg=$ACCENT_COLOUR bg=colour0"
+# setw -g window-status-current-format " #I#[fg=$ACCENT_COLOUR]:#[fg=$ACCENT_COLOUR]#W#[fg=colour234]#F "
+#
+# setw -g window-status-bell-style "fg=colour255 bg=colour3 bold"
+#
+# # messages
+# set -g message-style "fg=colour16 bg=$ACCENT_COLOUR bold"
+# set -g message-command-style "fg=colour16 bg=$ACCENT_COLOUR bold"
 #set -g message-command-style "fg=colour16 bg=colour232 bold"
 
 # enable truecolor support
 set -g default-terminal "screen-256color"
 #set -g default-terminal "xterm-256color"
 set-option -ga terminal-overrides ",xterm-256color:Tc"
+
+# List of plugins
+# https://github.com/tmux-plugins/tpm
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin "janoamaral/tokyo-night-tmux"
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'github_username/plugin_name#branch'
+# set -g @plugin 'git@github.com:user/plugin'
+# set -g @plugin 'git@bitbucket.com:user/plugin'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
