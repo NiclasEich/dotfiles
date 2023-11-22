@@ -99,12 +99,12 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 if [[ `uname` == "Linux" ]]; then
     source $HOME/.zsh_ubuntu
-    prompt_context() {
-    # Custom (Random emoji)
-    emojis=("⚡️" "🔥" "💀" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🇹🇭" "🚦" "🌙")
-    RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
-    prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
-}
+    #prompt_context() {
+     #Custom (Random emoji)
+    #emojis=("⚡️" "🔥" "💀" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🇹🇭" "🚦" "🌙")
+    #RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
+    #prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
+#}
 elif [[ `uname` == "Darwin" ]]; then
     source $HOME/.zsh_mac
 fi
@@ -138,4 +138,8 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 #source "$( law completion )"
 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export XDG_CONFIG_HOME=/Users/niclaseich/.config
+source $HOME/.local_aliases
+
+# this is needed for what again?
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
