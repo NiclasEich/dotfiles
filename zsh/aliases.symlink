@@ -1,5 +1,4 @@
 alias cl='clear'
-alias vim='vim'
 alias search='find * -type f | fzf > selected'
 
 alias l='ls -la'
