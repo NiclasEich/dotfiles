@@ -23,12 +23,12 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-    use ({'nvim-tree/nvim-tree'})
+    use ({'nvim-tree/nvim-tree.lua'})
     use ({'nvim-tree/nvim-web-devicons'})
     use ({ 'nvim-treesitter/playground'})
     use ({'kylechui/nvim-surround'})
     use ({ 'ThePrimeagen/harpoon'} )
-    use ({ 'mbbil/undotree'} )
+    use ({ 'mbbill/undotree'} )
     use ({ 'tpope/vim-fugitive' } )
     use ({ 'NiclasEich/FlyAway' })
     use {
