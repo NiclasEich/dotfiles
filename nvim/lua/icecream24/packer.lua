@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
     use ({ 'ThePrimeagen/harpoon'} )
     use ({ 'mbbil/undotree'} )
     use ({ 'tpope/vim-fugitive' } )
+    use ({ 'NiclasEich/FlyAway' })
     use {
         'numToStr/Comment.nvim',
         config = function()
