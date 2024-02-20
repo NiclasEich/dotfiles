@@ -67,7 +67,6 @@ set -g status-justify left
 # # messages
 # set -g message-style "fg=colour16 bg=$ACCENT_COLOUR bold"
 # set -g message-command-style "fg=colour16 bg=$ACCENT_COLOUR bold"
->>>>>>> 98afd48af0f14b0009c279b28c80dadc3d1c3299
 #set -g message-command-style "fg=colour16 bg=colour232 bold"
 
 # enable truecolor support
