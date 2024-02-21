@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
     use ({ 'mbbill/undotree'} )
     use ({ 'tpope/vim-fugitive' } )
     use ({ 'NiclasEich/FlyAway' })
+    use ({ 'github/copilot.vim' })
     use {
         'numToStr/Comment.nvim',
         config = function()
