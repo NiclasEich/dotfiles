@@ -1,18 +1,5 @@
 -- https://github.com/nvim-tree/nvim-tree.lua
-require("nvim-tree").setup({
-  sort = {
-    sorter = "case_sensitive",
-  },
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
+
 local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
@@ -29,9 +16,18 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', '<C-t>', ':NvimTreeToggle<CR>', {noremap=true})
 end
 
--- pass to setup along with your other options
-require("nvim-tree").setup {
-  ---
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
   on_attach = my_on_attach,
-  ---
-}
+})

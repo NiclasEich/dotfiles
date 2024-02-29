@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- make things move when highlighted
 vim.keymap.set("v", "J", ":m  '>+1<CR>gv=gv")
@@ -23,6 +23,9 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 -- keep cursor in the middle while searching
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- nvim-tree toggle
+vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>")
 
 -- search like a madman 
 -- not working smh :(
