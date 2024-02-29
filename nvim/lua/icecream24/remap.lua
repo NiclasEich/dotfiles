@@ -27,6 +27,9 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- nvim-tree toggle
 vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>")
 
+-- FlyAway
+vim.keymap.set("n", "<leader>f", ":FlyAwayFast push<CR>")
+
 -- search like a madman 
 -- not working smh :(
 -- vim.keymap.set("n","<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
