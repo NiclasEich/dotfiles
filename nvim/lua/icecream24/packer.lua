@@ -6,7 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
+  use "nvim-lua/plenary.nvim"
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
 	  -- or                            , branch = '0.1.x',
@@ -31,7 +31,11 @@ return require('packer').startup(function(use)
     }
     use ({ 'nvim-treesitter/playground'})
     use ({ 'kylechui/nvim-surround'})
-    use ({ 'ThePrimeagen/harpoon'} )
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
     use ({ 'mbbill/undotree'} )
     use ({ 'tpope/vim-fugitive' } )
     use ({ 'NiclasEich/FlyAway' })
