@@ -1,0 +1,12 @@
+{
+	"IPython-debug": {
+		"prefix": "ipydbg",
+		"body": [
+			"# fmt: off",
+			"print(f\"Entering debug in: {__file__}\")",
+			"from IPython import embed;embed()",
+			"# fmt: on",
+		],
+		"description": "Debgging statement for embedded IPython shell"
+	}
+}
