@@ -1,3 +1,4 @@
 *.swp
 vim/vim_locales.symlink
 tmux/tmux_locales.symlink
+nvim/plugin/packer_compiled.lua
