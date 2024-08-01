@@ -1,4 +1,7 @@
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- commenting
+vim.keymap.set("n", "<leader>cc", "<cmd>CommentToggle<CR>")
 
 -- make things move when highlighted
 vim.keymap.set("v", "J", ":m  '>+1<CR>gv=gv")
