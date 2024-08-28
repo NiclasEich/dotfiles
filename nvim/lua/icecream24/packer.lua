@@ -23,12 +23,12 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-    use {
+     use {
       'nvim-tree/nvim-tree.lua',
-      requires = {
-        'nvim-tree/nvim-web-devicons', -- optional
-      },
-    }
+    requires = {
+     'nvim-tree/nvim-web-devicons', -- optional
+     },
+     }
     use ({ 'nvim-treesitter/playground'})
     use ({ 'kylechui/nvim-surround'})
     use {
@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
 	    requires = {
 		    --- Uncomment these if you want to manage LSP servers from neovim
 		    {'williamboman/mason.nvim'},
-		    {'williamboman/mason-lspconfig.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
 		    -- LSP Support
 		    {'neovim/nvim-lspconfig'},
