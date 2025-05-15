@@ -1,3 +1,6 @@
 [submodule "nvim/start/texpresso.vim"]
 	path = nvim/start/texpresso.vim
 	url = https://github.com/let-def/texpresso.vim
+[submodule "nvim/nvim/pack/copilotchat/start/CopilotChat.nvim"]
+	path = nvim/nvim/pack/copilotchat/start/CopilotChat.nvim
+	url = git@github.com:CopilotC-Nvim/CopilotChat.nvim.git
