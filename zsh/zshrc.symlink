@@ -106,7 +106,8 @@ if [[ `uname` == "Linux" ]]; then
     #prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
 #}
 elif [[ `uname` == "Darwin" ]]; then
-    source $HOME/.zsh_mac
+    # source $HOME/.zsh_mac
+    echo "No zsh_mac file"
 fi
 
 source $HOME/.aliases
