@@ -1,0 +1,3 @@
+[submodule "nvim/start/texpresso.vim"]
+	path = nvim/start/texpresso.vim
+	url = https://github.com/let-def/texpresso.vim
