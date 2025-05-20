@@ -56,6 +56,7 @@ return require('packer').startup(function(use)
       requires = { {"nvim-lua/plenary.nvim"} }
   }
   use ({ 'mbbill/undotree'} )
+  use ({ 'folke/todo-comments.nvim'} )
   use ({ 'tpope/vim-fugitive' } )
   use ({ 'NiclasEich/FlyAway' })
   use ({ 'github/copilot.vim' })
