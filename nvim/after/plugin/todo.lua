@@ -10,6 +10,7 @@ require("todo-comments").setup({
             -- signs = false, -- configure signs for some keywords individually
         },
         TODO = { icon = " ", color = "info" },
+        FIGURE = { icon = "☹︎", color = "warning" },
         HACK = { icon = " ", color = "warning" },
         WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
