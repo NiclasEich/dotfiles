@@ -21,8 +21,24 @@ syntax enable
 " want another compiler backend, you can change it as follows. The list of
 " supported backends and further explanation is provided in the documentation,
 " see ":help vimtex-compiler".
-" let g:vimtex_compiler_method = 'latexrun'
 
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
 " let maplocalleader = ","
+" ==============================
+" VIMTEX & LuaLaTeX configuration
+" ==============================
+
+" Use latexmk, but tell it to use LuaLaTeX as the engine
+echom "vimtex.vim in after/plugin loaded!"
+let g:vimtex_compiler_latexmk = {
+      \ 'build_dir' : '',
+      \ 'executable' : 'latexmk',
+      \ 'options' : [
+      \   '-pdflatex=lualatex',
+      \   '-shell-escape',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ],
+\}
