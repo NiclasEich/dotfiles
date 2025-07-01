@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
   }
   use ({ 'mbbill/undotree'} )
   use ({ 'folke/todo-comments.nvim'} )
+  use ({ 'Hashino/doing.nvim' })
   use ({ 'tpope/vim-fugitive' } )
   use ({ 'NiclasEich/FlyAway' })
   use ({ 'github/copilot.vim' })
