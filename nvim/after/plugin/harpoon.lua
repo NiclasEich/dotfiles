@@ -52,16 +52,18 @@ local function toggle_telescope(harpoon_files)
         })
     end
 
+    opts = opts or {}
+
     require("telescope.pickers").new({}, {
         prompt_title = "Harpoon",
         finder = finder(),
-        previewer = true,
+        previewer = require("telescope.previewers").vim_buffer_cat.new(opts),
         sorter = require("telescope.config").values.generic_sorter({}),
         layout_config = {
-            height = 0.4,
-            width = 0.5,
-            prompt_position = "top",
-            preview_cutoff = 120,
+            height = 0.8,
+            width = 0.9,
+            prompt_position = "bottom",
+            preview_cutoff = 40,
         },
         attach_mappings = function(prompt_bufnr, map)
             map("i", "<C-d>", function()
