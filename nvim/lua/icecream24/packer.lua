@@ -29,6 +29,9 @@ return require('packer').startup(function(use)
 		  vim.cmd("colorscheme kanagawa-wave")
 	  end
   })
+  use ({
+    "folke/tokyonight.nvim",
+  })
   use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }

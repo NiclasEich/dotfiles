@@ -25,10 +25,10 @@ require('kanagawa').setup({
 })
 
 -- setup must be called before loading
-vim.cmd.colorscheme('kanagawa-wave')
+vim.cmd.colorscheme('tokyonight-storm')
 --
 -- Function to cycle through colorschemes
-local colorschemes = { 'kanagawa-wave', 'kanagawa-lotus', 'kanagawa-dragon' }
+local colorschemes = { 'kanagawa-wave', 'tokyonight-storm',}
 local current_index = 1
 
 function CycleColorscheme()
