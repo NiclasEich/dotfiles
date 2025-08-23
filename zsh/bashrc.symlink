@@ -104,3 +104,4 @@ function parse_git_dirty {
 export PS1="\[\e[32;40m\]\t\[\e[m\]-\u@\h:\w\\$\[\e[31m\]\`parse_git_branch\`\[\e[m\] "
 
 source $HOME/.aliases
+. "$HOME/.cargo/env"

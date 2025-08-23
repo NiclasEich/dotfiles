@@ -10,6 +10,9 @@ local chat = require('CopilotChat')
 local prompts = require('CopilotChat.config.prompts')
 local select = require('CopilotChat.select')
 
+vim.g.copilot_filetypes = {
+  rust = false,   -- deaktiviert Copilot für rust 
+}
 local COPILOT_PLAN = [[
 You are a software architect and technical planner focused on clear, actionable development plans.
 ]] .. prompts.COPILOT_BASE.system_prompt .. [[

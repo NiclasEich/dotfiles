@@ -64,6 +64,7 @@ return require('packer').startup(function(use)
   use ({ 'tpope/vim-fugitive' } )
   use ({ 'NiclasEich/FlyAway' })
   use ({ 'github/copilot.vim' })
+  use ({ 'rust-lang/rust.vim' })
   use ({ 'CopilotC-NVim/CopilotChat.nvim',
   requires = { 'nvim-lua/plenary.nvim', 'github/copilot.vim' }
     })
