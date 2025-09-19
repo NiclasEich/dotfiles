@@ -1,6 +1,6 @@
 require("icecream24")
 print("hello, this is your init.lua speaking")
-vim.cmd "colorscheme kanagawa"
+vim.cmd.colorscheme('tokyonight-storm')
 
 -- disable netrw at the very start of your init.lua
 -- vim.g.loaded_netrw = 1

@@ -64,5 +64,5 @@ overrides = function(colors)
     }
 end
 -- setup must be called before loading
-
-ColorSetup("kanagawa-wave")
+vim.cmd.colorscheme("tokyonight")
+-- ColorSetup("kanagawa-wave")

@@ -26,16 +26,3 @@ require('kanagawa').setup({
 
 -- setup must be called before loading
 vim.cmd.colorscheme('tokyonight-storm')
---
--- Function to cycle through colorschemes
-local colorschemes = { 'kanagawa-wave', 'tokyonight-storm',}
-local current_index = 1
-
-function CycleColorscheme()
-    current_index = current_index % #colorschemes + 1
-    vim.cmd.colorscheme(colorschemes[current_index])
-    print("Colorscheme changed to " .. colorschemes[current_index])
-end
-
--- Map the function to a keybinding, for example <leader>cs
-vim.api.nvim_set_keymap('n', '<leader>cs', ':lua CycleColorscheme()<CR>', { noremap = true, silent = true })

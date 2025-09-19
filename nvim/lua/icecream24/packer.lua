@@ -25,9 +25,9 @@ return require('packer').startup(function(use)
   use ({
 	  "rebelot/kanagawa.nvim",
 	  as="kanagawa",
-	  config=function()
-		  vim.cmd("colorscheme kanagawa-wave")
-	  end
+	  --config=function()
+		  --vim.cmd("colorscheme kanagawa-wave")
+	  --end
   })
   use ({
     "folke/tokyonight.nvim",
@@ -60,11 +60,20 @@ return require('packer').startup(function(use)
   }
   use ({ 'mbbill/undotree'} )
   use ({ 'folke/todo-comments.nvim'} )
+  use ({ 'folke/zen-mode.nvim' })
+  use ({ 'folke/twilight.nvim' })
   use ({ 'Hashino/doing.nvim' })
   use ({ 'tpope/vim-fugitive' } )
   use ({ 'NiclasEich/FlyAway' })
   use ({ 'github/copilot.vim' })
   use ({ 'rust-lang/rust.vim' })
+  -- LSP and Autocompletion
+  use ({ 'neovim/nvim-lspconfig' }) -- Collection of configurations for built-in LSP client
+  use ({ 'hrsh7th/nvim-cmp' }) -- Autocompletion plugin
+  use ({ 'hrsh7th/cmp-nvim-lsp' })
+  use ({ 'hrsh7th/cmp-buffer' })
+  use ({ 'hrsh7th/cmp-path' })
+  use ({ 'hrsh7th/cmp-cmdline' })
   use ({ 'CopilotC-NVim/CopilotChat.nvim',
   requires = { 'nvim-lua/plenary.nvim', 'github/copilot.vim' }
     })

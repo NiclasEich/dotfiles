@@ -6,3 +6,4 @@ require("CopilotChat").setup {
   -- See Configuration section for options
 }
 
+vim.cmd.colorscheme('tokyonight-storm')
