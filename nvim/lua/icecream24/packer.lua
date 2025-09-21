@@ -12,6 +12,10 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim' }}
   }
+  use { "MunifTanjim/nui.nvim" }
+  use { "VonHeikemen/fine-cmdline.nvim" 
+      requires = { "MunifTanjim/nui.nvim"}
+  }
   ---- not redy yet
   --use({
   -- "rebelot/heirline.nvim",

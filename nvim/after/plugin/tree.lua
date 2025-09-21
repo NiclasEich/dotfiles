@@ -32,10 +32,10 @@ require("nvim-tree").setup({
    on_attach = my_on_attach,
 })
 
-local function restore_nvim_tree()
-  require("nvim-tree.api").tree.open({ focus = false })
-end
+--local function restore_nvim_tree()
+--  require("nvim-tree.api").tree.open({ focus = false })
+--end
 
-require('auto-session').setup {
-    post_restore_cmds = {restore_nvim_tree}
-}
+--require('auto-session').setup {
+--    post_restore_cmds = {restore_nvim_tree}
+--}
