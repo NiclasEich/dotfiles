@@ -73,6 +73,7 @@ set -g status-justify left
 # set -g message-command-style "fg=colour16 bg=$ACCENT_COLOUR bold"
 #set -g message-command-style "fg=colour16 bg=colour232 bold"
 
+
 # enable truecolor support
 set -g default-terminal "screen-256color"
 #set -g default-terminal "xterm-256color"
@@ -83,6 +84,7 @@ set-option -ga terminal-overrides ",xterm-256color:Tc"
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin "janoamaral/tokyo-night-tmux"
+set -g @tokyo-night-tmux_transparent 1  # 1 or 0
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
 # set -g @plugin 'github_username/plugin_name#branch'

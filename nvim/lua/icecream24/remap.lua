@@ -37,8 +37,5 @@ vim.keymap.set("n", "<leader>f", ":FlyAwayFast push<CR>")
 -- not working smh :(
 -- vim.keymap.set("n","<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
--- search for current wors
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
 -- open session search 
 vim.keymap.set("n", "<leader>ss", ":SessionSearch<CR>")
