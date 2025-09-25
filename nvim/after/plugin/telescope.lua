@@ -20,7 +20,7 @@ vim.keymap.set('n', '<leader>ps', function()
 end)
 
 -- In init.lua (oder irgendeiner anderen geladenen Lua-Datei)
-vim.keymap.set('n', '<leader>/', function()
+vim.keymap.set('n', '<leader>s', function()
   require('telescope.builtin').current_buffer_fuzzy_find{
     -- immer fuzzymatchen, aber OHNE Beachtung von Groß-/Kleinschreibung
     case_mode = 'ignore_case',   -- Alternativen: 'smart_case', 'respect_case'
@@ -30,7 +30,7 @@ vim.keymap.set('n', '<leader>/', function()
   }
 end, { desc = 'Suche im aktuellen Buffer (case-insensitive)' })
 
-vim.keymap.set('n', '<leader>s', function()
+vim.keymap.set('n', '<leader>/', function()
   local word = vim.fn.expand('<cword>')      -- Wort unter dem Cursor holen
   require('telescope.builtin').current_buffer_fuzzy_find{
     default_text = word,                     -- schon vorausgefülltes Input-Feld
