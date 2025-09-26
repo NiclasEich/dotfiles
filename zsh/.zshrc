@@ -10,7 +10,7 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster-custom"
+ZSH_THEME="agnoster"
 
 #ZSH_CUSTOM=$HOME/.dotfiles/zsh
 # Set list of themes to pick from when loading at random
@@ -67,8 +67,6 @@ ZSH_THEME="agnoster-custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -121,15 +119,12 @@ rscreen () {
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-echo hello $USER
-# direnv settings
-eval "$(direnv hook zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # The following lines were added by compinstall
 
 #zstyle ':completion:*' completer _expand _complete _ignored
-zstyle :compinstall filename '/Users/niclaseich/.zshrc'
+zstyle :compinstall filename '${HOME}/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -145,6 +140,9 @@ source $HOME/.local_aliases
 # this is needed for what again?
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
+
+#source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
