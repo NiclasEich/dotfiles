@@ -1,6 +1,12 @@
-require("icecream24")
+require("config.lazy")
+require("config.remap")
+require("config.init")
+require("config.colorscheme")
+require("config.set")
 print("hello, this is your init.lua speaking")
-vim.cmd.colorscheme('tokyonight-storm')
+--require('plugins')
+--require("lazy").setup("plugins")
+vim.cmd.colorscheme("tokyonight-moon")
 
 -- disable netrw at the very start of your init.lua
 -- vim.g.loaded_netrw = 1
