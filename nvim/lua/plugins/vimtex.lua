@@ -1,5 +1,6 @@
 return {
   "lervag/vimtex",
+
   -- Load when editing TeX *and* when you call common VimTeX commands
   ft = { "tex", "plaintex" },      -- 'latex' is not a Neovim filetype
   cmd = { "VimtexCompile", "VimtexView", "VimtexTocOpen", "VimtexInfo", "VimtexClean", "VimtexStop" },
