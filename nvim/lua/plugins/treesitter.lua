@@ -4,13 +4,13 @@ return {
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
-      ensure_installed = { "c", "python", "lua", "vim", "vimdoc", "query" },
+      ensure_installed = { "c", "python", "lua","latex", "bibtex", "vim", "vimdoc", "query" },
       sync_install = false,
       auto_install = true,
       ignore_install = { "javascript" },
       highlight = {
         enable = true,
-        disable = { "latex" },
+        disable = {  },
         additional_vim_regex_highlighting = false,
       },
     },
