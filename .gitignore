@@ -1,4 +1,4 @@
-.DS_Store
+*.DS_Store
 *.swp
 vim/vim_locales.symlink
 tmux/tmux_locales.symlink
