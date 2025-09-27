@@ -17,11 +17,13 @@
     fish
     hyperfine
     lua5_1
+    lua-language-server
     luarocks
     nodejs
     ripgrep
     starship
     stow
+    ffmpeg_4
     tree
     tree-sitter
     uv       # Astral's fast Python tool
@@ -34,6 +36,14 @@
      nerd-fonts.jetbrains-mono
      nerd-fonts.roboto-mono
     tmux
+    # ---- LaTeX ----
+    mupdf
+    texliveFull
+    texlab
+    (if pkgs ? ltex-ls-plus then pkgs.ltex-ls-plus else pkgs.ltex-ls)
+    # Optional: TeXpresso (live render + popups)
+    texpresso
+    # ---- Development ----
     #neovim
     #zoxide
     #fzf
