@@ -56,8 +56,12 @@
 	  autosuggestion.enable = true;
 	  syntaxHighlighting.enable = true;
 	};
-  programs.fish.enable = false;
-  programs.starship.enable = false;
+  programs.fish.enable = true;
+
+  programs.starship = {
+      enable = true;
+      settings = builtins.fromTOML (builtins.readFile ../../configs/starship-tokyonight.toml);
+  };
 
   programs.zoxide = {
     enable = true;
