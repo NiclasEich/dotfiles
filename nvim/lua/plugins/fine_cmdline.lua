@@ -1,5 +1,6 @@
 return {
   "VonHeikemen/fine-cmdline.nvim",
+  enabled=false,
   dependencies = { "MunifTanjim/nui.nvim" },
   cmd = "FineCmdline",
   init = function()
@@ -9,7 +10,7 @@ return {
     cmdline = { enable_keymaps = true, smart_history = true, prompt = ": " },
     popup = {
       position = { row = "80%", col = "7%" },
-      size     = { width = "30%" },
+      size     = { width = "50%" },
       border   = { -- style = "rounded",
       },
       win_options = { winhighlight = "Normal:Normal,FloatBorder:FloatBorder" },

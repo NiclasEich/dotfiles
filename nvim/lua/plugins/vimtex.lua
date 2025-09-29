@@ -1,5 +1,13 @@
 return {
     {
+  "barreiroleo/ltex_extra.nvim",
+  version = "v0.2.2",  -- recent release with the simplified setup
+  ft = {
+    "markdown", "text", "gitcommit", "mail",
+    "tex", "plaintex", "latex", "bib", "rnoweb", "quarto", "typst", "rst", "org", "pandoc"
+  },
+},
+    {
   "lervag/vimtex",
 
   -- Load when editing TeX *and* when you call common VimTeX commands

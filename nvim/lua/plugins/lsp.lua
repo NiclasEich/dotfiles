@@ -1,3 +1,4 @@
+-- LSP, completion, snippets, diagnostics, and related UI
 return {
   -- Completion engine: blink.cmp
   {
@@ -36,7 +37,43 @@ return {
     dependencies = { "L3MON4D3/LuaSnip" },
     config = function() require("luasnip-latex-snippets").setup() end,
   },
-
+    {
+      "folke/trouble.nvim",
+      opts = {}, -- for default options, refer to the configuration section for custom setup.
+      cmd = "Trouble",
+      keys = {
+        {
+          "<leader>xx",
+          "<cmd>Trouble diagnostics toggle<cr>",
+          desc = "Diagnostics (Trouble)",
+        },
+        {
+          "<leader>xX",
+          "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+          desc = "Buffer Diagnostics (Trouble)",
+        },
+        {
+          "<leader>cs",
+          "<cmd>Trouble symbols toggle focus=false<cr>",
+          desc = "Symbols (Trouble)",
+        },
+        {
+          "<leader>cl",
+          "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+          desc = "LSP Definitions / references / ... (Trouble)",
+        },
+        {
+          "<leader>xL",
+          "<cmd>Trouble loclist toggle<cr>",
+          desc = "Location List (Trouble)",
+        },
+        {
+          "<leader>xQ",
+          "<cmd>Trouble qflist toggle<cr>",
+          desc = "Quickfix List (Trouble)",
+        },
+      },
+    },
   -- LSP (new Neovim 0.11+ API; no require('lspconfig') framework calls)
   {
     "neovim/nvim-lspconfig",
@@ -45,7 +82,6 @@ return {
       "saghen/blink.cmp",
       "folke/trouble.nvim",
       "nvimdev/lspsaga.nvim",
-      "barreiroleo/ltex_extra.nvim",
     },
     config = function()
       -- Always derive capabilities from blink.cmp
@@ -54,6 +90,7 @@ return {
         cfg.capabilities = require("blink.cmp").get_lsp_capabilities(cfg.capabilities)
         return cfg
       end
+      vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<cr>', opts)
 
       ---------------------------------------------------------------------------
       -- Servers you want enabled
@@ -99,28 +136,34 @@ return {
       }))
       vim.lsp.enable("rust_analyzer")
 
-      -- LTeX+ (Grammar/Spell) — make sure ltex-ls-plus is installed & on PATH
-      vim.lsp.config("ltex_plus", with_caps({
-        -- If needed, force the binary (uncomment next line):
-        -- cmd = { "ltex-ls-plus" },
-        settings = {
-          ltex = {
-            language = "en-US",
-            additionalRules = { enablePickyRules = true },
+      -- LTeX (+) — Grammar/Spell
+      vim.lsp.config("ltex", with_caps({
+          -- Run the LTeX+ binary but keep the client name "ltex"
+          cmd = { "ltex-ls-plus" },  -- ensure it's on PATH (e.g., via Mason)
+          filetypes = {
+              "markdown", "text", "gitcommit", "mail",
+              "tex", "plaintex", "bib", "rnoweb", "quarto", "typst", "rst", "org", "pandoc",
           },
-        },
-        on_attach = function(_, _)
-            local ok, ltex_extra = pcall(require, "ltex_extra")
-            if ok and type(ltex_extra) == "table" and ltex_extra.setup then
-                ltex_extra.setup({
-                    load_langs = { "en-US" },
-                    path = vim.fn.stdpath("config") .. "/ltex",
-                })
-            end
-        end,
-
+          settings = {
+              ltex = {
+                  language = "en-US",
+                  additionalRules = { enablePickyRules = true },
+              },
+          },
+          on_attach = function(client, bufnr)
+              local ok, ltex_extra = pcall(require, "ltex_extra")
+              if ok then
+                  ltex_extra.setup({
+                      load_langs = { "en-US" },
+                      path = vim.fn.stdpath("config") .. "/ltex",
+                      -- optional, tone down notifications from the plugin
+                      log_level = "warn",
+                  })
+              end
+          end,
       }))
-      vim.lsp.enable("ltex_plus")
+      vim.lsp.enable("ltex")
+
 
       -- TeX (Texlab) — let VimTeX handle build/view; Texlab for LSP features
       vim.lsp.config("texlab", with_caps({
@@ -140,9 +183,15 @@ return {
       ---------------------------------------------------------------------------
       -- UI niceties & diagnostics
       ---------------------------------------------------------------------------
-      require("lspsaga").setup({})
+      require("lspsaga").setup({
+        ui = {
+            code_action = '🔍',
+            lightbulb = { enable = false },  -- stop auto code-action probing per cursor
+        }
+      })
       vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
       vim.keymap.set("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Line diagnostics (Saga)" })
+
 
       -- Optional: auto-show via Saga on CursorHold in normal mode
       vim.o.updatetime = 2000
@@ -153,9 +202,6 @@ return {
           end,
       })
 
-      vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>",
-        { desc = "Diagnostics (Trouble)" })
-
       vim.diagnostic.config({
         virtual_text = false,
         float = { border = "rounded", source = "if_many" },
@@ -163,15 +209,14 @@ return {
       })
 
       -- Show diag float on hold (correct API shape)
-      local diag_float_grp = vim.api.nvim_create_augroup("DiagFloat", { clear = true })
-      vim.o.updatetime = 300
-      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        group = diag_float_grp,
-        callback = function()
-          vim.diagnostic.open_float(nil, { focusable = false, border = "rounded", scope = "line" })
-        end,
-      })
+      --local diag_float_grp = vim.api.nvim_create_augroup("DiagFloat", { clear = true })
+      --vim.o.updatetime = 300
+      --vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      --  group = diag_float_grp,
+      --  callback = function()
+      --    vim.diagnostic.open_float(nil, { focusable = false, border = "rounded", scope = "line" })
+      --  end,
+      --})
     end,
   },
 }
-
