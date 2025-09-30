@@ -10,10 +10,11 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:#50589C bg:#3C467B)\
-$nodejs\
-$rust\
 $golang\
+$nodejs\
 $php\
+$python\
+$rust\
 [](fg:#3C467B bg:#3C467B)\
 $time\
 [ ](fg:#3C467B)\
@@ -66,6 +67,11 @@ format = '[[ $symbol ($version) ](fg:#6E8CFB bg:#3C467B)]($style)'
 
 [php]
 symbol = ""
+style  = "bg:#3C467B"
+format = '[[ $symbol ($version) ](fg:#6E8CFB bg:#3C467B)]($style)'
+
+[python]
+symbol = "🐍"
 style  = "bg:#3C467B"
 format = '[[ $symbol ($version) ](fg:#6E8CFB bg:#3C467B)]($style)'
 

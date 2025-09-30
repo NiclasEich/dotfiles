@@ -16,8 +16,9 @@ $gradle\
 $haskell\
 $java\
 $julia\
-$nodejs\
 $nim\
+$nodejs\
+$python\
 $rust\
 $scala\
 [](fg:#86BBD8 bg:#06969A)\
