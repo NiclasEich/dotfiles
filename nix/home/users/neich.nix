@@ -50,13 +50,32 @@
     # (We install rustup from the official script below)
   ];
 
-  # ---- Shells, prompt & integrations ----
   programs.zsh = {
 	  enable = false;
 	  autosuggestion.enable = true;
 	  syntaxHighlighting.enable = true;
 	};
-  programs.fish.enable = true;
+     programs.fish = {
+        enable = true;
+
+        # If you keep your own config.fish and disabled HM’s,
+        # ensure HM’s session vars still get loaded:
+        shellInit = ''
+          if test -f ~/.nix-profile/etc/profile.d/hm-session-vars.fish
+            source ~/.nix-profile/etc/profile.d/hm-session-vars.fish
+          else if test -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+            # Fallback when only the sh file exists:
+            if type -q fenv
+              fenv source ~/.nix-profile/etc/profile.d/hm-session-vars.sh >/dev/null
+            end
+          end
+        '';
+
+        # Only needed if you rely on the fallback above:
+        plugins = [
+          { name = "foreign-env"; src = pkgs.fishPlugins.foreign-env; }
+        ];
+      };
 
   programs.starship = {
       enable = true;
