@@ -13,17 +13,17 @@
   # ---- Packages (CLI) ----
   home.packages = with pkgs; [
     # lua version 5.1
+    bat
     fd
     fish
     hyperfine
-    lua5_1
     lua-language-server
+    lua5_1
     luarocks
     nodejs
     ripgrep
     starship
     stow
-    ffmpeg_4
     tree
     tree-sitter
     uv       # Astral's fast Python tool
@@ -37,9 +37,10 @@
      nerd-fonts.roboto-mono
     tmux
     # ---- LaTeX ----
+    ffmpeg_4
     mupdf
-    texliveFull
     texlab
+    texliveFull
     (if pkgs ? ltex-ls-plus then pkgs.ltex-ls-plus else pkgs.ltex-ls)
     # Optional: TeXpresso (live render + popups)
     texpresso
@@ -70,6 +71,18 @@
             end
           end
         '';
+
+        # Nice QoL: concise abbreviations (expand on space/enter)
+        shellAbbrs = {
+            g = "git";
+            ga = "git add";
+            gc = "git commit";
+            gco = "git checkout";
+            gcm = "git commit -m";
+            gp = "git push";
+            gs = "git status";
+            gl = "git log --oneline --graph --decorate";
+        };
 
         # Only needed if you rely on the fallback above:
         plugins = [
