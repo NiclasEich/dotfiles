@@ -14,6 +14,8 @@
   home.packages = with pkgs; [
     # lua version 5.1
     bat
+    bitwarden-cli 
+    jq
     fd
     fish
     hyperfine
@@ -74,6 +76,7 @@
 
         # Nice QoL: concise abbreviations (expand on space/enter)
         shellAbbrs = {
+            n = "nvim";
             g = "git";
             ga = "git add";
             gc = "git commit";
