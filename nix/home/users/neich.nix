@@ -3,7 +3,11 @@
   programs.home-manager.enable = true;
 
   # Ensure Cargo/uv user bins are in PATH
-  home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/.local/bin" ];
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+    "$HOME/.local/bin"
+    "$HOME/.npm-global/bin"
+  ];
 
   home.username = user;
   home.homeDirectory = "/Users/${user}";
@@ -13,19 +17,19 @@
   # ---- Packages (CLI) ----
   home.packages = with pkgs; [
     # lua version 5.1
-    bat
-    bitwarden-cli 
-    jq
-    fd
+    bat # enhanced cat command
+    delta # git diff viewer
+    jq # command-line JSON processor
+    fd # simple, fast and user-friendly alternative to 'find'
     fish
-    hyperfine
+    hyperfine # command-line benchmarking tool
     lua-language-server
     lua5_1
     luarocks
     nodejs
-    ripgrep
-    starship
-    stow
+    ripgrep # line-oriented search tool
+    starship # cross-shell prompt
+    stow # symlink manager
     tree
     tree-sitter
     uv       # Astral's fast Python tool
@@ -52,6 +56,12 @@
     #fzf
     # (We install rustup from the official script below)
   ];
+
+  # Provide a user-local npm prefix so global npm installs are isolated
+  home.file.".npmrc".text = "prefix = ${config.home.homeDirectory}/.npm-global\n";
+  home.activation.createNpmGlobalDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "$HOME/.npm-global"
+  '';
 
   programs.zsh = {
 	  enable = false;
@@ -113,5 +123,52 @@
   # ---- tmux ----
   #programs.tmux.enable = true;
 
-}
+  # Use Neovim as default editor without managing it via HM
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    GIT_EDITOR = "nvim";
+  };
 
+  # ---- Git (delta pager + nvim editor/mergetool) ----
+  programs.git = {
+    enable = true;
+    extraConfig = {
+      core = {
+        pager = "delta";
+        editor = "nvim";
+      };
+      interactive = { diffFilter = "delta --color-only"; };
+      delta = {
+        navigate = true; # use n and N to move between diff sections
+        dark = true;
+      };
+      merge = {
+        conflictStyle = "zdiff3";
+        tool = "nvimdiff";
+      };
+      mergetool = {
+        keepBackup = false;
+      };
+      "mergetool.nvimdiff" = {
+        cmd = "nvim -d \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd J'";
+        trustExitCode = true;
+      };
+    };
+  };
+
+  # Install codex via npm into the user-local prefix if missing
+  home.activation.installCodex = lib.hm.dag.entryAfter [ "createNpmGlobalDir" ] ''
+    if command -v npm >/dev/null 2>&1; then
+      PREFIX="${config.home.homeDirectory}/.npm-global"
+      export NPM_CONFIG_PREFIX="$PREFIX"
+      export PATH="$PREFIX/bin:$PATH"
+      if ! "$PREFIX/bin/codex" --version >/dev/null 2>&1 && ! command -v codex >/dev/null 2>&1; then
+        echo "Installing codex via npm into $PREFIX" >&2
+        npm install -g codex --prefix "$PREFIX" --no-fund --no-audit || true
+      fi
+    else
+      echo "npm not found; skipping codex install" >&2
+    fi
+  '';
+}
