@@ -12,6 +12,7 @@
   # GUI/macOS pieces via casks (choose your Docker path below)
   homebrew.casks = [
     "bitwarden"    # Bitwarden desktop app
+    "super-productivity" # Task/time tracking app
     #"docker"       # Docker Desktop (GUI + VM)
     # If you prefer NOT to use Docker Desktop, comment the line above
     # and use Colima instead (below) with the docker CLI from Homebrew.
@@ -58,4 +59,3 @@
 
   # You can add macOS defaults here later (Dock, Finder, etc.)
 }
-

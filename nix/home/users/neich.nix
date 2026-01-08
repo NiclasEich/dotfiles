@@ -27,11 +27,13 @@
     lua5_1
     luarocks
     nodejs
+    pandoc
     ripgrep # line-oriented search tool
     starship # cross-shell prompt
     stow # symlink manager
     tree
     tree-sitter
+    typst # modern typesetting system
     uv       # Astral's fast Python tool
     watch
     zsh      # backup shell
