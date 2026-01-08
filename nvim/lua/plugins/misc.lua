@@ -7,11 +7,19 @@ return {
   -- ── Colorschemes (not auto-applied) ─────────────────────────────────────────
   -- If you want one of these as default, see the commented example below.
   { "rebelot/kanagawa.nvim", name = "kanagawa" },
-  { "folke/tokyonight.nvim",
-      style = "moon",
-      config = function ()
-          vim.cmd.colorscheme("tokyonight-moon")
-      end,
+  {
+    "folke/tokyonight.nvim",
+    config = function()
+      require("tokyonight").setup({
+        style = "moon",
+        on_highlights = function(hl, c)
+          local util = require("tokyonight.util")
+          hl.CursorLineNr = { fg = util.lighten(c.fg_gutter, 0.5), bold = false }
+          hl.LineNrAbove = { fg = util.darken(c.fg_gutter, 0.65) }
+        end,
+      })
+      vim.cmd.colorscheme("tokyonight-moon")
+    end,
   },
 
   -- ── Editing niceties ────────────────────────────────────────────────────────
@@ -50,4 +58,3 @@ return {
   --   end,
   -- },
   }
-

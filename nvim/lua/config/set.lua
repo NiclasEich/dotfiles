@@ -1,5 +1,7 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -28,3 +30,20 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+
+local function set_diff_change_hl()
+  local colors = require("tokyonight.colors").setup()
+  local util = require("tokyonight.util")
+  vim.api.nvim_set_hl(0, "DiffChange", { bg = util.darken(colors.diff.text, 0.35) })
+end
+
+local diff_hl_group = vim.api.nvim_create_augroup("DiffHighlights", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = diff_hl_group,
+  pattern = "tokyonight-moon",
+  callback = set_diff_change_hl,
+})
+
+if vim.g.colors_name == "tokyonight-moon" then
+  set_diff_change_hl()
+end

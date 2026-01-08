@@ -9,6 +9,7 @@ return {
       FIX   = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
       TODO  = { icon = " ", color = "info"  },
       FIGURE= { icon = "☹︎",  color = "warning" },
+      CITE = { icon = " ", color = "hint" },
       HACK  = { icon = " ", color = "warning" },
       WARN  = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
       PERF  = { icon = " ", alt  = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
