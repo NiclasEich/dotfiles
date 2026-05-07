@@ -159,18 +159,4 @@
     };
   };
 
-  # Install codex via npm into the user-local prefix if missing
-  home.activation.installCodex = lib.hm.dag.entryAfter [ "createNpmGlobalDir" ] ''
-    if command -v npm >/dev/null 2>&1; then
-      PREFIX="${config.home.homeDirectory}/.npm-global"
-      export NPM_CONFIG_PREFIX="$PREFIX"
-      export PATH="$PREFIX/bin:$PATH"
-      if ! "$PREFIX/bin/codex" --version >/dev/null 2>&1 && ! command -v codex >/dev/null 2>&1; then
-        echo "Installing codex via npm into $PREFIX" >&2
-        npm install -g codex --prefix "$PREFIX" --no-fund --no-audit || true
-      fi
-    else
-      echo "npm not found; skipping codex install" >&2
-    fi
-  '';
 }

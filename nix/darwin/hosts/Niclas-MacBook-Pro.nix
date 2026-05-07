@@ -12,6 +12,7 @@
   # GUI/macOS pieces via casks (choose your Docker path below)
   homebrew.casks = [
     "bitwarden"    # Bitwarden desktop app
+    "codex"        # OpenAI Codex CLI
     "super-productivity" # Task/time tracking app
     #"docker"       # Docker Desktop (GUI + VM)
     # If you prefer NOT to use Docker Desktop, comment the line above
@@ -40,6 +41,7 @@
       for p in \
           $HOME/development/bin \
           $HOME/nvim-macos-arm64/bin \
+          /Applications/Obsidian.app/Contents/MacOS \
           /usr/local/opt/openssl@1.1/bin \
           $HOME/.pyenv/bin \
           $HOME/.cargo/bin \
