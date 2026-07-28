@@ -27,9 +27,6 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- nvim-tree toggle
-vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>")
-
 -- FlyAway
 vim.keymap.set("n", "<leader>f", ":FlyAwayFast push<CR>")
 

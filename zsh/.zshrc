@@ -67,6 +67,8 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -135,7 +137,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 #source "$( law completion )"
 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-source $HOME/.local_aliases
+[ -f "$HOME/.local_aliases" ] && source "$HOME/.local_aliases"
 
 # this is needed for what again?
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0

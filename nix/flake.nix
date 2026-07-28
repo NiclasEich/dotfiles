@@ -1,5 +1,5 @@
-# flake.nix
-{ inputs = {
+{
+  inputs = {
     # Use the Darwin release channel on macOS:
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
@@ -8,38 +8,52 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
-  let
-    user = "neich";
-    host = "Niclas-MacBook-Pro";
-  in {
-    darwinConfigurations.${host} = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      specialArgs = { inherit user; };
+  outputs =
+    {
+      nix-darwin,
+      home-manager,
+      ...
+    }:
+    let
+      # Machine-specific values live in one place. Change these when adding or
+      # moving the configuration to another Mac.
+      user = "neich";
+      host = "Niclas-MacBook-Pro";
+      platform = "aarch64-darwin";
+      homeDirectory = "/Users/${user}";
+    in
+    {
+      darwinConfigurations.${host} = nix-darwin.lib.darwinSystem {
+        system = platform;
+        specialArgs = {
+          inherit user homeDirectory;
+        };
 
-      modules = [
-        ./darwin/hosts/${host}.nix
-        home-manager.darwinModules.home-manager
+        modules = [
+          ./darwin/hosts/${host}.nix
+          home-manager.darwinModules.home-manager
 
-        {
-          # Pass `user` into your HM modules (so you can use it there)
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit user; };
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit user homeDirectory;
+            };
 
-          # Wire HM to your user *without* referencing users.users.<name>
-          home-manager.users.${user} = import ./home/users/${user}.nix;
-        }
+            home-manager.users.${user} = import ./home/users/${user}.nix;
+          }
 
-        ({ pkgs, ... }: {
-          nix.settings.experimental-features = [ "nix-command" "flakes" ];
-          nixpkgs.hostPlatform = "aarch64-darwin";
-  	  users.users.${user}.home = "/Users/${user}";
-	  system.stateVersion = 6;
-	  system.primaryUser = "${user}";
-        })
-      ];
+          {
+            nix.settings.experimental-features = [
+              "nix-command"
+              "flakes"
+            ];
+            nixpkgs.hostPlatform = platform;
+            users.users.${user}.home = homeDirectory;
+            system.stateVersion = 6;
+            system.primaryUser = user;
+          }
+        ];
+      };
     };
-  };
 }
-

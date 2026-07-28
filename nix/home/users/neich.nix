@@ -1,4 +1,12 @@
-{ config, pkgs, lib, user, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  user,
+  homeDirectory,
+  ...
+}:
+{
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 
@@ -10,7 +18,7 @@
   ];
 
   home.username = user;
-  home.homeDirectory = "/Users/${user}";
+  home.homeDirectory = homeDirectory;
 
   fonts.fontconfig.enable = true;
 
@@ -66,48 +74,50 @@
   '';
 
   programs.zsh = {
-	  enable = false;
-	  autosuggestion.enable = true;
-	  syntaxHighlighting.enable = true;
-	};
-     programs.fish = {
-        enable = true;
+    enable = false;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+  };
 
-        # If you keep your own config.fish and disabled HM’s,
-        # ensure HM’s session vars still get loaded:
-        shellInit = ''
-          if test -f ~/.nix-profile/etc/profile.d/hm-session-vars.fish
-            source ~/.nix-profile/etc/profile.d/hm-session-vars.fish
-          else if test -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-            # Fallback when only the sh file exists:
-            if type -q fenv
-              fenv source ~/.nix-profile/etc/profile.d/hm-session-vars.sh >/dev/null
-            end
-          end
-        '';
+  programs.fish = {
+    enable = true;
 
-        # Nice QoL: concise abbreviations (expand on space/enter)
-        shellAbbrs = {
-            n = "nvim";
-            g = "git";
-            ga = "git add";
-            gc = "git commit";
-            gco = "git checkout";
-            gcm = "git commit -m";
-            gp = "git push";
-            gs = "git status";
-            gl = "git log --oneline --graph --decorate";
-        };
+    shellInit = ''
+      set -gx SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
 
-        # Only needed if you rely on the fallback above:
-        plugins = [
-          { name = "foreign-env"; src = pkgs.fishPlugins.foreign-env; }
-        ];
-      };
+      if test -x /opt/homebrew/bin/brew
+        eval (/opt/homebrew/bin/brew shellenv)
+      end
+
+      for path_entry in \
+          "$HOME/development/bin" \
+          "$HOME/nvim-macos-arm64/bin" \
+          "/Applications/Obsidian.app/Contents/MacOS" \
+          "/usr/local/opt/openssl@1.1/bin" \
+          "$HOME/.pyenv/bin"
+        if test -d "$path_entry"
+          fish_add_path --move --prepend "$path_entry"
+        end
+      end
+    '';
+
+    # Concise abbreviations expand on space or Enter.
+    shellAbbrs = {
+      n = "nvim";
+      g = "git";
+      ga = "git add";
+      gc = "git commit";
+      gco = "git checkout";
+      gcm = "git commit -m";
+      gp = "git push";
+      gs = "git status";
+      gl = "git log --oneline --graph --decorate";
+    };
+  };
 
   programs.starship = {
-      enable = true;
-      settings = builtins.fromTOML (builtins.readFile ../../configs/starship-tokyonight.toml);
+    enable = true;
+    settings = builtins.fromTOML (builtins.readFile ../../configs/starship-tokyonight.toml);
   };
 
   programs.zoxide = {

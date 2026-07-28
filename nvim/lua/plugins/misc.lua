@@ -4,9 +4,7 @@ return {
 
   -- ── Command line UI ─────────────────────────────────────────────────────────
 
-  -- ── Colorschemes (not auto-applied) ─────────────────────────────────────────
-  -- If you want one of these as default, see the commented example below.
-  { "rebelot/kanagawa.nvim", name = "kanagawa" },
+  -- ── Default colorscheme ──────────────────────────────────────────────────────
   {
     "folke/tokyonight.nvim",
     config = function()
